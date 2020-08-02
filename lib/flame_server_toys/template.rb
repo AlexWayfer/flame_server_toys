@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'toys-core'
+
 module FlameServerToys
 	## Root template for `server` tool
 	class Template
