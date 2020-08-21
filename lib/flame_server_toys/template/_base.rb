@@ -71,7 +71,10 @@ module FlameServerToys
 				end
 
 				def puma_command(command)
-					sh "bundle exec pumactl #{command}"
+					## https://github.com/dazuma/toys/issues/65
+					Bundler.with_unbundled_env do
+						sh "bundle exec pumactl #{command}"
+					end
 				end
 
 				def development_restart
