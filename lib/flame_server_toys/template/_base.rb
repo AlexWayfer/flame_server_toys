@@ -27,9 +27,8 @@ module FlameServerToys
 				private
 
 				def sh(command, print: true)
-					## https://github.com/dazuma/toys/issues/58
-					# options = { log_level: Logger::UNKNOWN } if print
-					# super sh_command(command), **options
+					options = { log_level: Logger::UNKNOWN } if print
+					super sh_command(command), **options
 
 					puts "> #{command}" if print
 					system sh_command(command)

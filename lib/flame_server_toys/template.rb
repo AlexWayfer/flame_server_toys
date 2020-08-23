@@ -20,8 +20,7 @@ module FlameServerToys
 				subtool_apply do
 					## Order is important because `sh` is overriding in `CommonCode`
 
-					## https://github.com/dazuma/toys/issues/58
-					# include :exec, exit_on_nonzero_status: true
+					include :exec, exit_on_nonzero_status: true
 
 					include Template::Base::CommonCode
 				end
