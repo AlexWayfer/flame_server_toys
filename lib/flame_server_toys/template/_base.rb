@@ -29,9 +29,6 @@ module FlameServerToys
 				def sh(command, print: true)
 					options = { log_level: Logger::UNKNOWN } if print
 					super sh_command(command), **options
-
-					puts "> #{command}" if print
-					system sh_command(command)
 				end
 
 				def sh_spawn(command, print: true)
