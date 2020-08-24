@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+## 0.2.1 (2020-08-24)
+
+*   Fix system calls.
+
 ## 0.2.0 (2020-08-23)
 
 *   Update `toys`.
