@@ -30,6 +30,7 @@ Gem::Specification.new do |spec|
 	spec.required_ruby_version = '>= 2.5'
 
 	spec.add_runtime_dependency 'alt_memery', '~> 2.0'
+	spec.add_runtime_dependency 'filewatcher-cli', '~> 1.0.0.beta1'
 	spec.add_runtime_dependency 'gorilla_patch', '~> 4.0'
 	spec.add_runtime_dependency 'toys-core', '~> 0.11.0'
 
