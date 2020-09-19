@@ -67,10 +67,8 @@ module FlameServerToys
 				end
 
 				def puma_command(command)
-					## https://github.com/dazuma/toys/issues/65
-					Bundler.with_unbundled_env do
-						sh "bundle exec pumactl #{command}"
-					end
+					## Don't use `bundle exec`: https://github.com/dazuma/toys/issues/65
+					sh "pumactl #{command}"
 				end
 
 				def development_restart
@@ -95,10 +93,10 @@ module FlameServerToys
 				end
 
 				def filewatcher_command(pattern, execute, exclude: nil)
+					## Don't use `bundle exec`, it's already required by `toys`
+					## https://github.com/dazuma/toys/issues/65
 					<<-CMD.split.join(' ')
-						bundle exec "
-							filewatcher '#{pattern}' #{"--exclude '#{exclude}'" unless exclude.nil?} '#{execute}'
-						"
+						filewatcher #{"--exclude '#{exclude}'" unless exclude.nil?} '#{pattern}' '#{execute}'
 					CMD
 				end
 
