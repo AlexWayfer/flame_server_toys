@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+## 0.2.2 (2020-09-23)
+
+*   Fix `status` command.
+
 ## 0.2.1 (2020-08-24)
 
 *   Fix system calls.
