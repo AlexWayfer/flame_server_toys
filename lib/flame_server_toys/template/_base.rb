@@ -26,8 +26,10 @@ module FlameServerToys
 
 				private
 
-				def sh(command, print: true)
-					options = { log_level: Logger::UNKNOWN } if print
+				def sh(command, print: true, exit_on_fail: true)
+					options = {}
+					options[:log_level] = Logger::UNKNOWN if print
+					options[:exit_on_nonzero_status] = exit_on_fail
 					super sh_command(command), **options
 				end
 

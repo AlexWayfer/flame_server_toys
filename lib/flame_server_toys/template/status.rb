@@ -22,7 +22,7 @@ module FlameServerToys
 					private
 
 					def ps_with_grep(pattern)
-						sh "ps aux | grep #{pattern} --color", print: false
+						sh "ps aux | grep #{pattern} --color", print: false, exit_on_fail: false
 					end
 				end
 
