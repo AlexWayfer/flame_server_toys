@@ -45,7 +45,8 @@ expand FlameServerToys::Template,
 ```
 
 On `start` and `restart` commands in `development` environment there will be spawned
-[Filewatchers](https://github.com/filewatcher/filewatcher) from `filewatcher.yaml` file.
+`Filewatcher`s from `filewatcher.yaml` file
+via [`filewatcher-matrix`](https://github.com/filewatcher/filewatcher-matrix).
 
 ## Development
 

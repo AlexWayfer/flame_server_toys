@@ -10,8 +10,6 @@ module FlameServerToys
 						@config = template.config
 
 						server :stop
-
-						pids_file_class.new(:filewatcher).kill_each.delete
 					end
 				end
 			end

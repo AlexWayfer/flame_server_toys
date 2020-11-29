@@ -3,8 +3,6 @@
 require 'memery'
 require 'yaml'
 
-require_relative '_pids_file'
-
 module FlameServerToys
 	class Template
 		## Base class for toys
@@ -33,11 +31,6 @@ module FlameServerToys
 					super sh_command(command), **options
 				end
 
-				def sh_spawn(command, print: true)
-					puts "spawn #{command}" if print
-					spawn sh_command(command), pgroup: true
-				end
-
 				def sh_command(command)
 					require 'shellwords'
 
@@ -50,11 +43,6 @@ module FlameServerToys
 
 					sh "#{context_directory}/exe/setup/ruby.sh"
 					sh("#{context_directory}/exe/setup/node.sh") if %i[start restart].include?(command)
-
-					if %i[stop restart].include?(command)
-						filewatcher_pids_file = pids_file_class.new(:filewatcher)
-						filewatcher_pids_file.kill_each.delete
-					end
 
 					web_server(command)
 				end
@@ -77,29 +65,15 @@ module FlameServerToys
 					spawn_development_filewatchers
 
 					puma_command File.exist?(@config[:server][:puma_pid_file]) ? 'restart' : 'start'
-				rescue SystemExit, Interrupt => e
-					pids_file_class.new(:filewatcher).kill_each.delete
-
-					raise e
 				end
 
 				def spawn_development_filewatchers
-					development_filewatchers =
-						YAML.load_file("#{context_directory}/filewatchers.yaml").map do |args|
-							filewatcher_command args[:pattern], args[:command], exclude: args[:exclude]
-						end
+					require 'filewatcher/matrix'
 
-					filewatcher_pids = development_filewatchers.map { |command| sh_spawn command }
-
-					pids_file_class.new(:filewatcher, filewatcher_pids).dump
-				end
-
-				def filewatcher_command(pattern, execute, exclude: nil)
-					## Don't use `bundle exec`, it's already required by `toys`
-					## https://github.com/dazuma/toys/issues/65
-					<<-CMD.split.join(' ')
-						filewatcher #{"--exclude '#{exclude}'" unless exclude.nil?} '#{pattern}' '#{execute}'
-					CMD
+					Thread.new do
+						matrix = Filewatcher::Matrix.new("#{context_directory}/filewatchers.yaml")
+						matrix.start
+					end
 				end
 
 				def waiting_mailing_lock
@@ -108,15 +82,6 @@ module FlameServerToys
 						puts 'Waiting...'
 						sleep 1
 					end
-				end
-
-				memoize def pids_file_class
-					subclass = Class.new(PidsFile)
-					pids_dir = @config[:pids_dir]
-					subclass.class_exec do
-						self.pids_dir = pids_dir
-					end
-					subclass
 				end
 			end
 		end

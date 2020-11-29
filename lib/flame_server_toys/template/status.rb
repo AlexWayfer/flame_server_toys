@@ -10,10 +10,6 @@ module FlameServerToys
 						@config = template.config
 
 						puts
-						puts 'Filewatcher:'
-						puts
-						ps_with_grep '[f]ilewatcher'
-						puts
 						puts 'Puma:'
 						puts
 						ps_with_grep '[p]uma[\ :]'
