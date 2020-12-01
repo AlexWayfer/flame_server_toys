@@ -2,6 +2,12 @@
 
 ## master (unreleased)
 
+## 0.3.0 (2020-12-02)
+
+*   Replace spawn of `filewatcher-cli` and pids files with `filewatcher-matrix`
+    It can be kind of standard and work better.
+*   Update dependencies.
+
 ## 0.2.2 (2020-09-23)
 
 *   Fix `status` command.
