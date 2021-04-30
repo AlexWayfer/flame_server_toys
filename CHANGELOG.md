@@ -2,6 +2,11 @@
 
 ## master (unreleased)
 
+## 0.4.0 (2021-04-30)
+
+*   Add Ruby 3 support.
+*   Update dependencies.
+
 ## 0.3.0 (2020-12-02)
 
 *   Replace spawn of `filewatcher-cli` and pids files with `filewatcher-matrix`
