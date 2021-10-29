@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 0.5.0 (2021-10-29)
+
+*   Update dependencies.
+
 ## 0.4.0 (2021-04-30)
 
 *   Add Ruby 3 support.
