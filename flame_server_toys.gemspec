@@ -35,13 +35,13 @@ Gem::Specification.new do |spec|
 	spec.add_runtime_dependency 'alt_memery', '~> 2.0'
 	spec.add_runtime_dependency 'filewatcher-matrix', '~> 0.2.0'
 	spec.add_runtime_dependency 'gorilla_patch', '~> 4.0'
-	spec.add_runtime_dependency 'toys-core', '~> 0.12.0'
+	spec.add_runtime_dependency 'toys-core', '~> 0.13.0'
 
 	spec.add_development_dependency 'pry-byebug', '~> 3.9'
 
 	spec.add_development_dependency 'bundler', '~> 2.0'
 	spec.add_development_dependency 'gem_toys', '~> 0.11.0'
-	spec.add_development_dependency 'toys', '~> 0.12.0'
+	spec.add_development_dependency 'toys', '~> 0.13.0'
 
 	spec.add_development_dependency 'codecov', '~> 0.6.0'
 	spec.add_development_dependency 'rspec', '~> 3.9'
