@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+## 0.6.1 (2022-09-24)
+
+*   Allow `gorilla_patch` version 5.
+*   Update `filewatcher-matrix` to version 1.0.
+*   Improve CI.
+
 ## 0.6.0 (2022-09-01)
 
 *   Add Ruby 3.1 for CI.
