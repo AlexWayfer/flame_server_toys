@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+## 0.7.0 (2022-10-22)
+
+*   Update `toys-core`.
+*   Update `rubocop`.
+*   Improve CI.
+*   Update badges in README.
+
 ## 0.6.1 (2022-09-24)
 
 *   Allow `gorilla_patch` version 5.
