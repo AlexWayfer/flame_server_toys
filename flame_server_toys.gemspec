@@ -35,5 +35,5 @@ Gem::Specification.new do |spec|
 	spec.add_dependency 'alt_memery', '~> 3.0'
 	spec.add_dependency 'filewatcher-matrix', '~> 2.0.0'
 	spec.add_dependency 'gorilla_patch', '>= 4.0', '< 7'
-	spec.add_dependency 'toys-core', '~> 0.19.0'
+	spec.add_dependency 'toys-core', '~> 0.22.0'
 end
